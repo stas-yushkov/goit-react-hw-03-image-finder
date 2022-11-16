@@ -1,6 +1,6 @@
 export const colors = {
 
-  color: '#010101',
+  color: '#212121',
 
   buttonBg: '#0e639c',
   buttonBghoverFocus: '#1073b6',

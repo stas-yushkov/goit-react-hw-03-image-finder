@@ -1,24 +1,17 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { colors } from "constants/colors";
+import { colors } from 'constants/colors';
 
-export const StyledButton = styled.button`
+export const AppWrapper = styled.div`
+  /* height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: fit-content;
-  padding: ${props => props.type === 'button' ? '10px' : '20px'};
-  background-color: ${colors.buttonBg};
-  color: ${colors.button};
-  border: 1px solid ${colors.buttonBorder};
-  border-radius: 5px;
+  align-items: center; */
+  font-size: 40;
+  color: ${colors.color};
 
-  &:hover,
-  &:focus {
-    background-color: ${colors.buttonBghoverFocus};
-    outline: none;
-  }
-  &:active {
-    background-color: ${colors.buttonBgPressed};
-  }
-`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+  padding-bottom: 24px;
+`;
