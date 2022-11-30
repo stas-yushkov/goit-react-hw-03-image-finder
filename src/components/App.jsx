@@ -37,36 +37,6 @@ export const App = () => {
     setLargeImageURL(imagesList.find(({ id }) => id === imgID).largeImageURL);
   };
 
-  // useEffect(() => {
-  //   // console.log(imagesData);
-  //   // setImagesData(getImages());
-
-  //   return () => {
-  //     setImagesData(initialData);
-  //   };
-  // }, [imagesData]);
-
-  useEffect(() => {
-    // setPage(1);
-    // setImagesData({});
-    // setQuery('');
-    // console.log('eff');
-    // const { data } = getImages();
-    // setImagesData(data);
-    // console.log(data, '--data');
-    // getImages('cat dog')
-    //   .then(res => {
-    //     // console.log(res, '--res');
-    //     setImagesData(res?.data);
-    //     // console.log(res?.data.totalHits, '-- res?.data.totalHits');
-    //     // toast(res?.data.totalHits);
-    //   })
-    //   .catch(err => toast(err));
-    // return () => {
-    //   setImagesData(initialData);
-    // };
-  }, []);
-
   useEffect(() => {
     if (!query) {
       return;
@@ -74,14 +44,8 @@ export const App = () => {
 
     setIsLoading(true);
 
-    //fetchData()
-    // setImagesData(resFromFetch)
-    // setIsLoading(false)
-
     getImages(query, { page })
       .then(res => {
-        console.log(res, '----res');
-        // setImagesList([...imagesList, ...res?.hits]);
         setImagesList(prevList => [...prevList, ...res?.hits]);
         if (res?.totalHits === 0) {
           toast.warn('There are no images for this query');
@@ -93,7 +57,7 @@ export const App = () => {
       .catch(err => toast(err))
       .finally(() => setIsLoading(false));
     // window.scrollTo('top');
-  }, [query, page]); // I dont want to add imagesList in dependencies
+  }, [query, page]);
 
   return (
     <AppWrapper>
@@ -103,14 +67,7 @@ export const App = () => {
       )}
       {isLoading && <Loader />}
       {isButtonVisible && (
-        <Button
-          onClick={() => {
-            console.log('btn clcked');
-            setPage(page + 1);
-          }}
-        >
-          Load more
-        </Button>
+        <Button onClick={() => setPage(page + 1)}>Load more</Button>
       )}
       {isModalOpen && (
         <Modal closeModal={() => setIsModalOpen(false)}>
