@@ -14,6 +14,7 @@ import { AppWrapper } from './StyledComponents';
 import { API_PER_PAGE } from 'constants';
 
 // TODO: add https://www.npmjs.com/package/body-scroll-lock
+// TODO: add autoLoadMore without button
 
 export const App = () => {
   const [imagesList, setImagesList] = useState([]);
