@@ -13,6 +13,8 @@ import { AppWrapper } from './StyledComponents';
 
 import { API_PER_PAGE } from 'constants';
 
+// TODO: add https://www.npmjs.com/package/body-scroll-lock
+
 export const App = () => {
   const [imagesList, setImagesList] = useState([]);
   const [largeImageURL, setLargeImageURL] = useState('');
@@ -56,7 +58,8 @@ export const App = () => {
       })
       .catch(err => toast(err))
       .finally(() => setIsLoading(false));
-    // window.scrollTo('top');
+    // TODO:  window.scrollTo('new line of images');
+    // TODO:  window.scrollTo('to top on new query');
   }, [query, page]);
 
   return (

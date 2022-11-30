@@ -6,6 +6,8 @@ import { IconButton } from '../IconButton/IconButton';
 
 import { CloseButtonWrapper, Overlay, StyledModal } from './StyledComponents';
 
+import { colors } from 'constants/colors';
+
 const modalRoot = document.querySelector('#modal-root');
 
 export const Modal = ({ children, closeModal }) => {
@@ -34,7 +36,7 @@ export const Modal = ({ children, closeModal }) => {
       <StyledModal>
         <CloseButtonWrapper>
           <IconButton
-            bgColor="#ff4646"
+            bgColor={colors.warn}
             color="black"
             onClick={() => closeModal()}
             aria-label="Close modal"
