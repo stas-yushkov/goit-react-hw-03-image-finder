@@ -82,7 +82,7 @@ export const App = () => {
       .then(res => {
         console.log(res, '----res');
         // setImagesList([...imagesList, ...res?.hits]);
-        setImagesList([...imagesList, ...res?.hits]);
+        setImagesList(prevList => [...prevList, ...res?.hits]);
         if (res?.totalHits === 0) {
           toast.warn('There are no images for this query');
           setIsButtonVisible(false);
