@@ -92,7 +92,8 @@ export const App = () => {
       })
       .catch(err => toast(err))
       .finally(() => setIsLoading(false));
-  }, [query, page]);
+    // window.scrollTo('top');
+  }, [query, page]); // I dont want to add imagesList in dependencies
 
   return (
     <AppWrapper>

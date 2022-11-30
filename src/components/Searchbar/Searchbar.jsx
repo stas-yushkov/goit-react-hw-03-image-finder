@@ -7,7 +7,6 @@ import {
   SearchbarWrapper,
   SearchForm,
   SearchFormButton,
-  SearchFormButtonLabel,
   SearchFormInput,
 } from './StyledComponents';
 
