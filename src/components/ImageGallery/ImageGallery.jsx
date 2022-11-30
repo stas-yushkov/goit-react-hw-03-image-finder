@@ -1,17 +1,12 @@
-import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 import { ImageGalleryWrapper } from './StyledComponents';
 
 export const ImageGallery = ({ imgList, handleOpenLargeImage }) => {
-  //
-  // console.log(data.hits);
-  // console.log(data.hits[0]);
-
   return (
     <ImageGalleryWrapper>
-      {imgList?.length &&
+      {imgList?.length > 0 &&
         imgList.map(item => (
           <ImageGalleryItem
             key={item.id}

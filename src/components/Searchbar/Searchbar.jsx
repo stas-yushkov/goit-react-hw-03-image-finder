@@ -17,7 +17,7 @@ export const Searchbar = ({ onSearch }) => {
   const search = e => {
     e.preventDefault();
     if (query?.trim().length === 0) {
-      toast('no name');
+      toast.warn('There is no name');
       return;
     }
     onSearch(query.toLowerCase().trim());

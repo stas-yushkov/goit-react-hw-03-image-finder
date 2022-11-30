@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { colors } from 'constants/colors';
+
 // import { colors } from 'constants/colors';
 // 
 // export const StyledButton = styled.button`
@@ -26,7 +28,7 @@ import styled from 'styled-components';
 export const StyledButton = styled.button`
   padding: 8px 16px;
   border-radius: 2px;
-  background-color: #3f51b5;
+  background-color: ${colors.searchbar};
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
   display: inline-block;

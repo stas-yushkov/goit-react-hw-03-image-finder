@@ -1,4 +1,6 @@
 import axios from 'axios';
+
+import { API_PER_PAGE } from 'constants';
 //https://pixabay.com/api/?q=cat&page=1&key=your_key&image_type=photo&orientation=horizontal&per_page=12
 // page дорівнює 1
 // 12 об'єктів, встановлено в параметрі per_page
@@ -7,27 +9,32 @@ import axios from 'axios';
 // webformatURL - посилання на маленьке зображення для списку карток
 // largeImageURL - посилання на велике зображення для модального вікна
 
-export const PixabayAPI = () => {
-  const data = null;
-  return data;
-}
+// const BASE_URL = 'https://pixabay.com/api/?key=22654483-4e0bcca85732e009257bb92c7&q=yellow+flowers&image_type=photo&pretty=true'
+const BASE_URL = 'https://pixabay.com/api/';
+const PIXABAY_API_KEY = '22654483-4e0bcca85732e009257bb92c7';
 
 //https://pixabay.com/api/?key=22654483-4e0bcca85732e009257bb92c7&q=yellow+flowers&image_type=photo
 
-export const getImages = async ({ query, params }) => {
+export const getImages = async (query, newParams = {}) => {
   let response = null;
+  const q = query
+    ? query?.split(' ')?.filter(word => word !== '').join('+')
+    : null;
+
   try {
-    response = await axios.get('/user', {
+    response = await axios.get(BASE_URL, {
       params: {
-        ID: 12345
+        key: PIXABAY_API_KEY,
+        per_page: API_PER_PAGE,
+        q,
+        ...newParams
       }
     })
-    console.log(response);
   } catch (error) {
     console.error(error);
   }
 
-  return response;
+  return response.data;
 }
 
 // var API_KEY = '22654483-4e0bcca85732e009257bb92c7';
